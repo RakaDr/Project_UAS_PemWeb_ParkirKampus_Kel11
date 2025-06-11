@@ -11,9 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kendaraans', function (Blueprint $table) {
+        Schema::create('kendaraan', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('merk', 30);
+            $table->string('pemilik', 40);
+            $table->string('nopol', 20)->unique(); // nopol harus unik
+            $table->integer('thn_beli')->nullable();
+            $table->string('deskripsi', 200)->nullable();
+
+            // Membuat foreign key ke tabel 'jenis'
+            $table->foreignId('jenis_kendaraan_id')
+                  ->constrained('jenis')
+                  ->onUpdate('cascade')
+                  ->onDelete('restrict');
+
+            // $table->timestamps();
         });
     }
 

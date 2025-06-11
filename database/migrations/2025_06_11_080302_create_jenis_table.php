@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jenis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Sesuai dengan INT, Primary Key, Auto-Increment
+            $table->string('nama', 20);
+            // $table->timestamps(); // Opsional, best practice Laravel
         });
     }
 

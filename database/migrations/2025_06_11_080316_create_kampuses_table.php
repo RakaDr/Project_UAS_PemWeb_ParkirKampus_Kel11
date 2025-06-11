@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kampuses', function (Blueprint $table) {
+        Schema::create('kampus', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nama', 20);
+            $table->string('alamat', 45);
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
+            // $table->timestamps();
         });
     }
 
