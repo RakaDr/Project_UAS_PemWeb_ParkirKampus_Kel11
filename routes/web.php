@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/landing', function () {
+    return view('landing');
+});
+
 Route::get('/tes-relasi', function() {
     // Ambil Kampus dengan ID 1, dan sertakan data relasi 'areaParkirs'-nya
     $kampus = Kampus::with('areaParkirs')->find(1);
