@@ -32,18 +32,18 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('feassets/images/favicon.png') }}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
   
   <!-- PLUGINS CSS STYLE -->
-  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="plugins/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
-  <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="{{ asset('plugins/bootstrap/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/themify-icons/themify-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/slick/slick.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/slick/slick-theme.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/fancybox/jquery.fancybox.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/aos/aos.css') }}">
 
   <!-- CUSTOM CSS -->
-  <link href="{{ asset('feassets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
 
@@ -52,7 +52,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 <nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
-    <a class="navbar-brand" href="#"><img src="{{ asset('feassets/images/logo.png') }}" alt="logo"></a>
+    <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="ti-menu"></span>
@@ -150,7 +150,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<a href="FAQ.html" class="btn btn-main-md">Download Now</a>
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
-				<img class="img-fluid" src="{{ asset('feassets/images/mobile.png') }}" alt="screenshot">
+				<img class="img-fluid" src="{{ asset('images/mobile.png') }}" alt="screenshot">
 			</div>
 		</div>
 	</div>
@@ -194,7 +194,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 ml-auto justify-content-center">
 				<!-- Feature Mockup -->
 				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="{{ asset('feassets/images/feature/feature-new-01.jpg') }}" alt="iphone">
+					<img class="img-fluid" src="{{ asset('images/feature/feature-new-01.jpg') }}" alt="iphone">
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto align-self-center">
@@ -215,7 +215,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					</p>
 					<ul class="list-inline meta">
 						<li class="list-inline-item">
-							<img src="{{ asset('feassets/images/testimonial/feature-testimonial-thumb.jpg') }}" alt="">
+							<img src="{{ asset('images/testimonial/feature-testimonial-thumb.jpg') }}" alt="">
 						</li>
 						<li class="list-inline-item">Jonathon Andrew , Themefisher.com</li>
 					</ul>
@@ -246,7 +246,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					</p>
 					<ul class="list-inline meta">
 						<li class="list-inline-item">
-							<img src="{{ asset('feassets/images/testimonial/feature-testimonial-thumb.jpg') }}" alt="">
+							<img src="{{ asset('images/testimonial/feature-testimonial-thumb.jpg') }}" alt="">
 						</li>
 						<li class="list-inline-item">Jonathon Andrew , Themefisher.com</li>
 					</ul>
@@ -255,7 +255,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 mr-auto justify-content-center">
 				<!-- Feature mockup -->
 				<div class="image-content" data-aos="fade-left">
-					<img class="img-fluid" src="{{ asset('feassets/images/feature/feature-new-02.jpg') }}" alt="ipad">
+					<img class="img-fluid" src="{{ asset('images/feature/feature-new-02.jpg') }}" alt="ipad">
 				</div>
 			</div>
 		</div>
@@ -281,7 +281,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 align-self-center">
 				<!-- Feature Image -->
 				<div class="service-thumb left" data-aos="fade-right">
-					<img class="img-fluid" src="{{ asset('feassets/images/feature/iphone-ipad.jpg') }}" alt="iphone-ipad">
+					<img class="img-fluid" src="{{ asset('images/feature/iphone-ipad.jpg') }}" alt="iphone-ipad">
 				</div>
 			</div>
 			<div class="col-lg-5 mr-auto align-self-center">
@@ -385,7 +385,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</p>
 							<!-- Person Thumb -->
 							<div class="image">
-								<img src="{{ asset('feassets/images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
+								<img src="{{ asset('images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
 							</div>
 							<!-- Name and Company -->
 							<cite>Abraham Linkon , Themefisher.com</cite>
@@ -403,7 +403,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</p>
 							<!-- Person Thumb -->
 							<div class="image">
-								<img src="{{ asset('feassets/images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
+								<img src="{{ asset('images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
 							</div>
 							<!-- Name and Company -->
 							<cite>Abraham Linkon , Themefisher.com</cite>
@@ -421,7 +421,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</p>
 							<!-- Person Thumb -->
 							<div class="image">
-								<img src="{{ asset('feassets/images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
+								<img src="{{ asset('images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
 							</div>
 							<!-- Name and Company -->
 							<cite>Abraham Linkon , Themefisher.com</cite>
@@ -439,7 +439,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</p>
 							<!-- Person Thumb -->
 							<div class="image">
-								<img src="{{ asset('feassets/images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
+								<img src="{{ asset('images/testimonial/feature-testimonial-thumb.jpg') }}" alt="image">
 							</div>
 							<!-- Name and Company -->
 							<cite>Abraham Linkon , Themefisher.com</cite>
@@ -493,7 +493,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       <div class="row">
         <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
           <div class="block">
-            <a href="index.html"><img src="{{ asset('feassets/images/logo-alt.png') }}" alt="footer-logo"></a>
+            <a href="index.html"><img src="{{ asset('images/logo-alt.png') }}" alt="footer-logo"></a>
             <!-- Social Site Icons -->
             <ul class="social-icon list-inline">
               <li class="list-inline-item">
@@ -577,17 +577,17 @@ FACEBOOK: https://www.facebook.com/themefisher
   </div>
   
   <!-- JAVASCRIPTS -->
-  <script src="{{ asset('feassets/plugins/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('feassets/plugins/bootstrap/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('feassets/plugins/slick/slick.min.js') }}"></script>
-  <script src="{{ asset('feassets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
-  <script src="{{ asset('feassets/plugins/syotimer/jquery.syotimer.min.js') }}"></script>
-  <script src="{{ asset('feassets/plugins/aos/aos.js') }}"></script>
+  <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
+  <script src="{{ asset('plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ asset('plugins/syotimer/jquery.syotimer.min.js') }}"></script>
+  <script src="{{ asset('plugins/aos/aos.js') }}"></script>
   <!-- google map -->
   <script src="{{ url('https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g') }}"></script>
-  <script src="{{ asset('feassets/plugins/google-map/gmap.js') }}"></script>
+  <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
   
-  <script src="{{ asset('feassets/js/script.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>
