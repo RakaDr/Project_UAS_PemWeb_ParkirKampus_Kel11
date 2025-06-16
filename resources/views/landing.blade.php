@@ -1,4 +1,4 @@
-<!-- 
+<!--
 THEME: Small Apps | Bootstrap App Landing Template
 VERSION: 1.0.0
 AUTHOR: Themefisher
@@ -33,7 +33,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
-  
+
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/themify-icons/themify-icons.css') }}">
@@ -50,7 +50,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
 
-<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
+<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0 ">
   <div class="container">
     <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -126,7 +126,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 <section class="section pt-0 position-relative pull-top">
 	<div class="container">
-		<div class="rounded shadow p-5 bg-white">
+		<div class="rounded shadow p-5 bg-[#F65500]">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
 					<i class="ti-paint-bucket text-primary h1"></i>
@@ -542,7 +542,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <div class="scroll-top-to">
     <i class="ti-angle-up"></i>
   </div>
-  
+
   <!-- JAVASCRIPTS -->
   <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
@@ -553,7 +553,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- google map -->
   <script src="{{ url('https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g') }}"></script>
   <script src="{{ asset('plugins/google-map/gmap.js') }}"></script>
-  
+
   <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
