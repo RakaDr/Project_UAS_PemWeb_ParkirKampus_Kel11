@@ -20,46 +20,119 @@
         @endif
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-    <header>
-        <nav class="p-5">
-        <div class="navbar shadow-sm bg-black p-5 rounded-xl text-white">
-            <!-- Navbar Start (Mobile Dropdown) -->
-            <div class="navbar-start">
-            <div class="dropdown">
-                <button tabindex="0" class="btn btn-ghost lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h8m-8 6h16" />
-                </svg>
-                </button>
-                <ul tabindex="0"
-                    class="menu menu-sm dropdown-content absolute mt-3 z-10 w-52 rounded-box bg-base-100 p-2 shadow">
-                <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Home</a></li>
-                <li><a href="#" class="text-black hover:text-[#F65500] font-bold">About</a></li>
-                <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Contact</a></li>
-                <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Help</a></li>
+    <div class="relative min-h-screen items-center">
+        <div class="absolute inset-0 -z-10 w-full h-auto bg-black">
+            <img src="{{ asset('images/bg.jpg') }}" alt="" class="w-full h-lvh object-cover object-center opacity-40 rounded-b-4xl" />
+        </div>
+        <header>
+            <nav class="p-5">
+            <div class="navbar shadow-sm bg-black p-5 rounded-xl text-white opacity-80">
+                <!-- Navbar Start (Mobile Dropdown) -->
+                <div class="navbar-start">
+                <div class="dropdown">
+                    <button tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                    </button>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content absolute mt-3 z-10 w-52 rounded-box bg-base-100 p-2 shadow">
+                    <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Home</a></li>
+                    <li><a href="#" class="text-black hover:text-[#F65500] font-bold">About</a></li>
+                    <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Contact</a></li>
+                    <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Help</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl" href="#">Logo</a>
+                </div>
+
+                <!-- Navbar Center (Desktop Menu) -->
+                <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">Home</a></li>
+                    <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">About</a></li>
+                    <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">Contact</a></li>
+                    <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">Help</a></li>
                 </ul>
-            </div>
-            <a class="btn btn-ghost text-xl" href="#">Logo</a>
-            </div>
+                </div>
 
-            <!-- Navbar Center (Desktop Menu) -->
-            <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">Home</a></li>
-                <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">About</a></li>
-                <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">Contact</a></li>
-                <li><a href="#" class="hover:text-[#F65500] font-bold mx-2">Help</a></li>
-            </ul>
-            </div>
+                <!-- Navbar End -->
+                <div class="navbar-end">
+                    @auth
+                        <a href="{{ url('/admin') }}" class="btn btn-outline-dark me-2">
+                            Dashboard
+                        </a>
+                    @else
+                        <a href="{{ url('/admin/login') }}" class="btn hover:bg-[#F65500] hover:text-white">
+                            Log in
+                        </a>
 
-            <!-- Navbar End -->
-            <div class="navbar-end">
-            <a class="btn hover:bg-[#F65500] hover:text-white" href="#">Login</a>
+                    @if (Route::has('register'))
+                        <a href="{{ url('/admin/register') }}" class="btn btn-outline-secondary">
+                            Register
+                        </a>
+                    @endif
+                    @endauth
+                </div>
+            </div>
+            </nav>
+        </header>
+
+        <main class="flex flex-col items-center justify-center text-center px-6 py-20 space-y-32 mt-20">
+
+            <!-- Hero Section -->
+            <section class="max-w-5xl">
+                <h1 class="text-5xl font-extrabold text-white mb-6">
+                Sistem <span class="text-[#F65500]">Parkir Cerdas</span> Kampus Anda
+                </h1>
+                <p class="text-white/70 text-lg mb-8">
+                Kelola parkir kendaraan mahasiswa, dosen, dan staf dengan efisien dan aman berbasis teknologi real-time.
+                </p>
+                <a href="#fitur" class="bg-[#F65500] text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-black transition">Lihat Fitur</a>
+            </section>
+
+            <!-- Fitur Section -->
+            <section id="fitur" class="w-full max-w-6xl bg">
+                <h2 class="text-3xl font-bold text-[#F65500] mb-12 text-center">Fitur Utama</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-black/50 p-6 rounded-xl border border-[#F65500] hover:scale-105 transition">
+                    <h3 class="text-xl text-white font-semibold mb-3">Scan QR Masuk-Keluar</h3>
+                    <p class="text-white/60">Gunakan QR Code dari aplikasi untuk keluar-masuk parkiran tanpa antri.</p>
+                </div>
+                <div class="bg-black/50 p-6 rounded-xl border border-[#F65500] hover:scale-105 transition">
+                    <h3 class="text-xl text-white font-semibold mb-3">Pantau Slot Parkir</h3>
+                    <p class="text-white/60">Lihat ketersediaan lahan parkir secara langsung dari dashboard atau aplikasi.</p>
+                </div>
+                <div class="bg-black/50 p-6 rounded-xl border border-[#F65500] hover:scale-105 transition">
+                    <h3 class="text-xl text-white font-semibold mb-3">Laporan & Riwayat</h3>
+                    <p class="text-white/60">Data kendaraan dan riwayat parkir tersimpan aman dan bisa diakses kapan saja.</p>
+                </div>
+                </div>
+            </section>
+
+            <!-- Call To Action -->
+            <section class="bg-white w-full py-20 px-8 rounded-3xl shadow-lg text-black text-center">
+                <h2 class="text-3xl font-bold mb-4">Ingin Terapkan di Kampusmu?</h2>
+                <p class="text-lg mb-6">Daftar sekarang untuk menggunakan sistem parkir kampus modern kami.</p>
+                <a href="{{ url('/admin/register') }}" class="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Daftar Sekarang</a>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-black/80 border-t border-[#F65500] mt-20 p-10 text-white/70 text-sm">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; {{ date('Y') }} Parkir Kampus Cerdas. All rights reserved.</p>
+            <div class="space-x-4 mt-4 md:mt-0">
+            <a href="#" class="hover:text-[#F65500]">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-[#F65500]">Syarat Layanan</a>
+            <a href="#" class="hover:text-[#F65500]">Hubungi Kami</a>
             </div>
         </div>
-        </nav>
-    </header>
+        </footer>
+
+    </div>
     </body>
 </html>
