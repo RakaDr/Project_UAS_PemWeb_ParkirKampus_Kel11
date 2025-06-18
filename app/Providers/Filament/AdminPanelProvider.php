@@ -33,7 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->registration()
             ->colors([
                 'primary' => '#FF6500', // Oranye sebagai warna utama
-                'gray' => '#0B192C',    // Biru sangat gelap sebagai pengganti warna abu-abu
+                'gray' => '#0B192C',   // Biru sangat gelap sebagai pengganti warna abu-abu
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
