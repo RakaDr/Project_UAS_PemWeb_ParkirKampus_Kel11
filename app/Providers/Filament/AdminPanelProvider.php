@@ -18,6 +18,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Widgets\DashboardStats; // Pastikan ini sesuai dengan widget yang Anda buat
+use App\Filament\Widgets\BlogPostsChart; // Contoh widget lain, jika ada
 use Filament\Pages\Dashboard;
 
 class AdminPanelProvider extends PanelProvider
@@ -29,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => '#FF6500', // Oranye sebagai warna utama
                 'gray' => '#0B192C',    // Biru sangat gelap sebagai pengganti warna abu-abu
@@ -43,6 +45,7 @@ class AdminPanelProvider extends PanelProvider
                 // Widgets\AccountWidget::class,
                 // Widgets\FilamentInfoWidget::class,
                 DashboardStats::class,
+                // BlogPostsChart::class, // Contoh widget lain, jika ada
             ])
             ->middleware([
                 EncryptCookies::class,
