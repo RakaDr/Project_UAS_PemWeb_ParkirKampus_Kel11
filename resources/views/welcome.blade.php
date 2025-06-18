@@ -21,7 +21,7 @@
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <div class="relative min-h-screen items-center">
-        <div class="absolute inset-0 -z-10 w-full h-auto bg-[#1A1A1D]">
+        <div class="absolute inset-0 -z-10 w-full h-auto bg-black/98">
             <img src="{{ asset('images/bg.jpg') }}" alt="" class="w-full h-lvh object-cover object-center opacity-40 rounded-b-4xl" />
         </div>
         <header>
@@ -80,70 +80,170 @@
             </nav>
         </header>
 
-        <main class="flex flex-col items-center justify-center text-center px-6 py-20 space-y-32 mt-20">
+        <main class="flex flex-col items-center justify-center text-center px-6 py-20 space-y-32 mt-14">
 
             <!-- Hero Section -->
-            <section class="max-w-5xl h-100">
-                <h1 class="text-5xl font-extrabold text-white mb-6">
-                Sistem <span class="text-[#F65500]">Parkir Cerdas</span> Kampus Anda
-                </h1>
-                <p class="text-white/70 text-lg mb-8">
-                Kelola parkir kendaraan mahasiswa, dosen, dan staf dengan efisien dan aman berbasis teknologi real-time.
-                </p>
-                <a href="#fitur" class="bg-[#F65500] text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-black transition">Lihat Fitur</a>
+            <section class="max-w-7xl h-100">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="text-left">
+                        <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight">
+                            Parkir <span class="text-[#F65500]">Kampus</span>
+                        </h1>
+                        <h2 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            Masa Depan
+                        </h2>
+                        <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
+                            Sistem parkir cerdas dengan teknologi terdepan untuk kemudahan dan keamanan mahasiswa dan staff kampus.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a
+                                class="btn bg-[#F65500] hover:bg-[#F65500]/90 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105"
+                            >
+                                Mulai Parkir
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
             </section>
 
             <!-- Fitur Section -->
             <section id="fitur" class="w-full max-w-6xl">
-                <h2 class="text-3xl font-bold text-[#F65500] mb-12 text-center">Fitur Utama</h2>
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
+                        Layanan <span class="text-[#F65500]">Terdepan</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Nikmati berbagai layanan modern yang dirancang khusus untuk memenuhi kebutuhan parkir kampus yang efisien dan aman
+                    </p>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                    <h3 class="text-xl text-white font-semibold mb-3">Scan QR Masuk-Keluar</h3>
-                    <p class="text-white/60">Gunakan QR Code dari aplikasi untuk keluar-masuk parkiran tanpa antri.</p>
-                </div>
-                <div class="bg-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                    <h3 class="text-xl text-white font-semibold mb-3">Pantau Slot Parkir</h3>
-                    <p class="text-white/60">Lihat ketersediaan lahan parkir secara langsung dari dashboard atau aplikasi.</p>
-                </div>
-                <div class="bg-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                    <h3 class="text-xl text-white font-semibold mb-3">Laporan & Riwayat</h3>
-                    <p class="text-white/60">Data kendaraan dan riwayat parkir tersimpan aman dan bisa diakses kapan saja.</p>
-                </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <h3 class="text-xl text-white font-semibold mb-3">Scan QR Masuk-Keluar</h3>
+                        <p class="text-white/60">Gunakan QR Code dari aplikasi untuk keluar-masuk parkiran tanpa antri.</p>
+                    </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <h3 class="text-xl text-white font-semibold mb-3">Pantau Slot Parkir</h3>
+                        <p class="text-white/60">Lihat ketersediaan lahan parkir secara langsung dari dashboard atau aplikasi.</p>
+                    </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <h3 class="text-xl text-white font-semibold mb-3">Laporan & Riwayat</h3>
+                        <p class="text-white/60">Data kendaraan dan riwayat parkir tersimpan aman dan bisa diakses kapan saja.</p>
+                    </div>
                 </div>
             </section>
 
-            <section>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div>
-                        <img src="" alt="">
+            <section class="h-fit">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
+                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
+                                    icon
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300">
+                                    title
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    deskripsi
+                            </div>
+                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition mt-4">
+                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
+                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
+                                    icon
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300">
+                                    title
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    deskripsi
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
+                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
+                                    icon
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300">
+                                    title
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    deskripsi
+                            </div>
+                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition mt-4">
+                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
+                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
+                                    icon
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300">
+                                    title
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed">
+                                    deskripsi
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h2></h2>
+                    <div class="md:mt-28 text-center md:text-left md:pr-20">
+                        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
+                            Statistik <span class="text-[#F65500]">Mengagumkan</span>
+                        </h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                            Angka-angka yang membuktikan kepercayaan dan kepuasan pengguna terhadap sistem parkir kampus kami
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- Call To Action -->
-            <section class="bg-white w-full py-20 px-8 rounded-3xl shadow-lg text-black text-center">
+            <section class="bg-white/60 w-full py-20 px-8 rounded-3xl shadow-lg text-black text-center">
                 <h2 class="text-3xl font-bold mb-4">Ingin Terapkan di Kampusmu?</h2>
                 <p class="text-lg mb-6">Daftar sekarang untuk menggunakan sistem parkir kampus modern kami.</p>
-                <a href="{{ url('/admin/register') }}" class="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Daftar Sekarang</a>
+                <a href="{{ url('/admin/register') }}" class="bg-[#F65500] text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Daftar Sekarang</a>
             </section>
 
         </main>
 
         <!-- Footer -->
-        <footer class="bg-black/80 border-t border-[#F65500] mt-20 p-10 text-white/70 text-sm">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; {{ date('Y') }} Parkir Kampus Cerdas. All rights reserved.</p>
-            <div class="space-x-4 mt-4 md:mt-0">
-            <a href="#" class="hover:text-[#F65500]">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-[#F65500]">Syarat Layanan</a>
-            <a href="#" class="hover:text-[#F65500]">Hubungi Kami</a>
-            </div>
-        </div>
+        <footer class="footer sm:footer-horizontal text-white p-10 bg-[#F65500]/80">
+            <aside>
+                <a href="">
+                    <img src="" alt="">
+                </a>
+                <p>
+                name
+                <br />
+                Providing reliable tech since 2025
+                </p>
+            </aside>
+            <nav>
+                <h6 class="footer-title">Services</h6>
+                <a class="link link-hover">Branding</a>
+                <a class="link link-hover">Design</a>
+                <a class="link link-hover">Marketing</a>
+                <a class="link link-hover">Advertisement</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Company</h6>
+                <a class="link link-hover">About us</a>
+                <a class="link link-hover">Contact</a>
+                <a class="link link-hover">Jobs</a>
+                <a class="link link-hover">Press kit</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Legal</h6>
+                <a class="link link-hover">Terms of use</a>
+                <a class="link link-hover">Privacy policy</a>
+                <a class="link link-hover">Cookie policy</a>
+            </nav>
         </footer>
-
     </div>
     </body>
 </html>
