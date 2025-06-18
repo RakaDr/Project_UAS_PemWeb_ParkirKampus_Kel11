@@ -39,13 +39,13 @@
                     </button>
                     <ul tabindex="0"
                         class="menu menu-sm dropdown-content absolute mt-3 z-10 w-52 rounded-box bg-base-100 p-2 shadow">
-                    <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Home</a></li>
+                    <li><a href="/" class="text-black hover:text-[#F65500] font-bold active:hover:text-[#F65500]">Home</a></li>
                     <li><a href="#" class="text-black hover:text-[#F65500] font-bold">About</a></li>
                     <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Contact</a></li>
                     <li><a href="#" class="text-black hover:text-[#F65500] font-bold">Help</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost text-xl" href="#">Logo</a>
+                <a class="btn btn-ghost" href="/"><img src="{{ asset('images/logo.png') }}" alt="" class="w-40"></a>
                 </div>
 
                 <!-- Navbar Center (Desktop Menu) -->
@@ -198,6 +198,41 @@
                         <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                             Angka-angka yang membuktikan kepercayaan dan kepuasan pengguna terhadap sistem parkir kampus kami
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fitur" class="w-full max-w-6xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
+                        Our <span class="text-[#F65500]">Team</span>
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <img src="" alt="">
+                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
+                        <p class="text-white/60">NIM</p>
+                    </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <img src="" alt="">
+                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
+                        <p class="text-white/60">NIM</p>
+                    </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <img src="" alt="">
+                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
+                        <p class="text-white/60">NIM</p>
+                    </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <img src="" alt="">
+                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
+                        <p class="text-white/60">NIM</p>
+                    </div>
+                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
+                        <img src="" alt="">
+                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
+                        <p class="text-white/60">NIM</p>
                     </div>
                 </div>
             </section>
