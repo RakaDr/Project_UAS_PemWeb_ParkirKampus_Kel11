@@ -13,7 +13,10 @@ class ListTransaksis extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Tambah Transaksi')
+                ->icon('heroicon-o-plus-circle') // Mengganti ikon
+                ->color('success'), // Mengganti warna tombol menjadi hijau
         ];
     }
 }

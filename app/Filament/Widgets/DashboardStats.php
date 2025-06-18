@@ -9,28 +9,25 @@ use Illuminate\Support\Facades\Cache;
 
 class DashboardStats extends BaseWidget
 {
+    protected static ?int $sort = -2; // Tempatkan widget ini di paling atas
+    protected static ?int $columns = 3; // Tampilkan 3 kartu per baris
+
     protected function getStats(): array
     {
-        // Gunakan cache untuk performa, data di-refresh setiap 1 menit (60 detik)
         return Cache::remember('widget_resource_stats', 60, function () {
             $stats = [];
-            
-            // Ambil semua Resource yang terdaftar di panel Filament saat ini
             $resources = Filament::getResources();
 
             foreach ($resources as $resource) {
-                // Dapatkan nama Model dari class Resource
                 $modelClass = $resource::getModel();
-
-                // Dapatkan label navigasi yang sudah Anda definisikan di Resource
                 $label = $resource::getPluralModelLabel();
-
-                // Dapatkan ikon navigasi yang sudah Anda definisikan di Resource
                 $icon = $resource::getNavigationIcon();
 
-                // Buat kartu statistik
+                // Buat kartu statistik menjadi lebih menarik
                 $stats[] = Stat::make($label, $modelClass::count())
-                    ->icon($icon);
+                    ->icon($icon)
+                    ->description('Total data yang tercatat')
+                    ->color('success'); // Beri warna hijau pada semua kartu
             }
 
             return $stats;

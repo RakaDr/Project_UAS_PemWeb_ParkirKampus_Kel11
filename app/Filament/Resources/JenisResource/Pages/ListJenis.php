@@ -13,7 +13,10 @@ class ListJenis extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Tambah Jenis Kendaraan')
+                ->icon('heroicon-o-plus-circle') // Mengganti ikon
+                ->color('success'), // Mengganti warna tombol menjadi hijau
         ];
     }
 }
