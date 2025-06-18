@@ -27,6 +27,9 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->brandLogo(asset('images/logolight.png'))
+            ->darkModeBrandLogo(asset('images/logodark.png'))
+            ->brandLogoHeight('200px') // Atur tinggi logo menjadi 40 pixel // Ganti dengan logo yang sesuai
             ->id('admin')
             ->path('admin')
             ->login()
