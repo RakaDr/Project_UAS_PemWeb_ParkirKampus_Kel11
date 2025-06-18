@@ -133,96 +133,16 @@
         </main>
 
         <!-- Footer -->
-        <footer id="contact" class="bg-parking-dark border-t border-parking-gray">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Main Footer Content -->
-                <div class="py-16 grid lg:grid-cols-4 gap-12">
-                    <!-- Brand Section -->
-                    <div class="lg:col-span-1 space-y-6">
-                        <div class="flex items-center space-x-2">
-                            <div class="bg-parking-orange p-2 rounded-lg">
-                                <!-- Ikon mobil, bisa pakai SVG atau Blade komponen -->
-                                {{-- @svg('car', 'h-6 w-6 text-white') --}}
-                            </div>
-                            <span class="text-xl font-bold text-white">CampusPark</span>
-                        </div>
-                        <p class="text-gray-300 leading-relaxed">
-                            Sistem parkir kampus terdepan dengan teknologi modern untuk kemudahan dan keamanan mahasiswa serta staff.
-                        </p>
-
-                        <!-- Social Links -->
-                        <div class="flex space-x-4">
-                                <a href="#"
-                                class="bg-parking-gray p-3 rounded-lg text-gray-300 hover:text-white hover:bg-parking-orange transition-all duration-300 hover:scale-110">
-                                    {!! $social['icon'] !!}
-                                </a>
-                        </div>
-                    </div>
-
-                    <!-- Links Sections -->
-                    @foreach ($footerLinks as $title => $links)
-                        <div class="space-y-6">
-                            <h3 class="text-lg font-semibold text-white">{{ $title }}</h3>
-                            <ul class="space-y-3">
-                                @foreach ($links as $link)
-                                    <li>
-                                        <a href="#" class="text-gray-300 hover:text-parking-orange transition-colors duration-200">
-                                            {{ $link }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endforeach
-                </div>
-
-                <!-- Contact Info -->
-                <div class="py-8 border-t border-parking-gray">
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="flex items-center space-x-3">
-                            <div class="bg-parking-orange/10 p-3 rounded-lg">
-                                {{-- @svg('mail', 'h-5 w-5 text-parking-orange') --}}
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Email</div>
-                                <div class="text-gray-300">info@campuspark.ac.id</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="bg-parking-orange/10 p-3 rounded-lg">
-                                {{-- @svg('phone', 'h-5 w-5 text-parking-orange') --}}
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Telepon</div>
-                                <div class="text-gray-300">+62 21 1234 5678</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="bg-parking-orange/10 p-3 rounded-lg">
-                                {{-- @svg('map-pin', 'h-5 w-5 text-parking-orange') --}}
-                            </div>
-                            <div>
-                                <div class="text-white font-medium">Alamat</div>
-                                <div class="text-gray-300">Kampus Universitas ABC</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Footer -->
-                <div class="py-6 border-t border-parking-gray">
-                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <div class="text-gray-300 text-sm">
-                            © 2024 CampusPark. Semua hak dilindungi undang-undang.
-                        </div>
-                        <div class="text-gray-300 text-sm">
-                            Dibuat dengan ❤️ untuk komunitas kampus
-                        </div>
-                    </div>
-                </div>
+        <footer class="bg-black/80 border-t border-[#F65500] mt-20 p-10 text-white/70 text-sm">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; {{ date('Y') }} Parkir Kampus Cerdas. All rights reserved.</p>
+            <div class="space-x-4 mt-4 md:mt-0">
+            <a href="#" class="hover:text-[#F65500]">Kebijakan Privasi</a>
+            <a href="#" class="hover:text-[#F65500]">Syarat Layanan</a>
+            <a href="#" class="hover:text-[#F65500]">Hubungi Kami</a>
             </div>
+        </div>
         </footer>
-
 
     </div>
     </body>
