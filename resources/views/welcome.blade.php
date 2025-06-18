@@ -211,28 +211,28 @@
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
                         <img src="" alt="">
-                        <h3 class="text-xl text-white font-semibold mb-3">Raka</h3>
-                        <p class="text-white/60">NIM</p>
+                        <h3 class="text-xl text-white font-semibold mb-3">Raka Dwi Randika</h3>
+                        <p class="text-white/60">0110224109</p>
                     </div>
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
                         <img src="" alt="">
-                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
-                        <p class="text-white/60">NIM</p>
+                        <h3 class="text-xl text-white font-semibold mb-3">Rois Azzam Shiddiq</h3>
+                        <p class="text-white/60">0110224156</p>
                     </div>
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
                         <img src="" alt="">
-                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
-                        <p class="text-white/60">NIM</p>
+                        <h3 class="text-xl text-white font-semibold mb-3">Anwar Maulana</h3>
+                        <p class="text-white/60">0110224020</p>
                     </div>
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
                         <img src="" alt="">
-                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
-                        <p class="text-white/60">NIM</p>
+                        <h3 class="text-xl text-white font-semibold mb-3">Rama Aditia</h3>
+                        <p class="text-white/60">0110224160</p>
                     </div>
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
                         <img src="" alt="">
-                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
-                        <p class="text-white/60">NIM</p>
+                        <h3 class="text-xl text-white font-semibold mb-3">Muhammad Rizqi Nurrohmat</h3>
+                        <p class="text-white/60">0110224001</p>
                     </div>
                 </div>
             </section>
