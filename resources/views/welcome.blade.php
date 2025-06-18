@@ -211,7 +211,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
                         <img src="" alt="">
-                        <h3 class="text-xl text-white font-semibold mb-3">Nama</h3>
+                        <h3 class="text-xl text-white font-semibold mb-3">Raka</h3>
                         <p class="text-white/60">NIM</p>
                     </div>
                     <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
