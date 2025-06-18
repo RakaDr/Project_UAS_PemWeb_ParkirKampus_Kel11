@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TAMBAHKAN BLOK INI */
+:root {
+    --f-sidebar-bg: #0B192C;
+    --f-sidebar-item-active-bg: #FF6500;
+    --f-sidebar-item-label-text-color: #ffffff;
+    --f-sidebar-item-icon-color: #ffffff;
+}
