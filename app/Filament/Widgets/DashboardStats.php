@@ -3,7 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AreaParkir;
-use App\Models\User; // <-- 1. PASTIKAN MODEL USER DI-IMPORT
+use App\Models\User;
 use Filament\Facades\Filament;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -19,30 +19,28 @@ class DashboardStats extends BaseWidget
     protected function getStats(): array
     {
         /** @var User $user */
-        $user = auth()->user(); // <-- 2. KITA TANGKAP USER-NYA DI SINI, DI LUAR CACHE
+        $user = auth()->user();
 
         // Menggunakan cache dengan durasi singkat (10 detik)
-        return Cache::remember('widget_resource_stats_final_v6', 10, function () use ($user) { // <-- 3. OPER VARIABEL $user KE DALAM FUNGSI
+        return Cache::remember('widget_resource_stats_final_v7', 10, function () use ($user) {
             $stats = [];
             $resources = Filament::getResources();
             $colors = ['success', 'info', 'warning', 'primary', 'danger'];
             $colorIndex = 0;
 
             foreach ($resources as $resource) {
-                
                 $modelClass = $resource::getModel();
                 
-                // Gunakan variabel $user yang sudah kita oper, bukan auth()->user() lagi
                 if ($user->can('viewAny', $modelClass)) {
-                    
                     $modelInstance = new $modelClass();
                     $label = $resource::getPluralModelLabel();
                     $icon = $resource::getNavigationIcon();
                     $url = $resource::getUrl('index');
                     
+                    // Nilai default untuk setiap kartu
                     $description = "Total {$label} tercatat";
                     $descriptionIcon = null;
-                    $chartData = [];
+                    $chartData = []; // <-- Secara default, chart akan selalu kosong
                     $color = 'gray';
 
                     $isAreaParkir = ($modelClass === AreaParkir::class);
@@ -56,16 +54,19 @@ class DashboardStats extends BaseWidget
 
                         $newDataToday = $trendData->get(now()->format('Y-m-d'), 0);
 
+                        // Hanya ubah deskripsi, warna, DAN chart jika ada data baru
                         if ($newDataToday > 0) {
                             $description = "{$newDataToday} Data baru hari ini";
                             $descriptionIcon = 'heroicon-m-arrow-trending-up';
                             $color = $colors[$colorIndex % count($colors)];
                             $colorIndex++;
-                        }
-
-                        for ($i = 6; $i >= 0; $i--) {
-                            $date = now()->subDays($i)->format('Y-m-d');
-                            $chartData[] = $trendData->get($date, 0);
+                            
+                            // --- PERBAIKAN DI SINI ---
+                            // Logika persiapan chart dipindahkan ke dalam blok ini
+                            for ($i = 6; $i >= 0; $i--) {
+                                $date = now()->subDays($i)->format('Y-m-d');
+                                $chartData[] = $trendData->get($date, 0);
+                            }
                         }
                     }
 
