@@ -20,6 +20,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Widgets\DashboardStats; // Pastikan ini sesuai dengan widget yang Anda buat
 use App\Filament\Widgets\BlogPostsChart; // Contoh widget lain, jika ada
 use Filament\Pages\Dashboard;
+use Illuminate\Contracts\View\View;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -50,6 +51,13 @@ class AdminPanelProvider extends PanelProvider
                 DashboardStats::class,
                 // BlogPostsChart::class, // Contoh widget lain, jika ada
             ])
+            ->renderHook(
+                'panels::head.end',
+                // Cek dulu apakah view-nya ada sebelum ditampilkan
+                fn (): ?View => view()->exists('filament.custom-styles') 
+                                    ? view('filament.custom-styles') 
+                                    : null
+            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

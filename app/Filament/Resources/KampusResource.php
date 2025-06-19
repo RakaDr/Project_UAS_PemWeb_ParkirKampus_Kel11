@@ -40,6 +40,12 @@ class KampusResource extends Resource
                     ->numeric(),
                 Forms\Components\TextInput::make('longitude')
                     ->numeric(),
+                Forms\Components\FileUpload::make('foto')
+                    ->image() // Menentukan ini adalah upload gambar, akan ada preview
+                    ->disk('public') // Menyimpan file di disk 'public' (storage/app/public)
+                    ->directory('foto-kampus') // Opsional: simpan dalam subfolder agar rapi
+                    ->imageEditor() // Opsional: menambahkan editor gambar bawaan (crop, rotate)
+                    ->columnSpanFull(), // Opsional: buat field ini selebar form
             ]);
     }
 
@@ -47,16 +53,21 @@ class KampusResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('foto')
+                    ->disk('public')
+                    ->circular()
+                    ->size(80),
                 // Menggunakan pola dari contoh Anda
                 Tables\Columns\TextColumn::make('nama') 
                     ->searchable(),
                 Tables\Columns\TextColumn::make('alamat')
                     ->searchable()
                     ->limit(50),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime('d M Y')
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                // Tables\Columns\TextColumn::make('created_at')
+                //     ->dateTime('d M Y')
+                //     ->sortable()
+                //     ->toggleable(isToggledHiddenByDefault: true),
+                
             ])
             ->filters([
                 //

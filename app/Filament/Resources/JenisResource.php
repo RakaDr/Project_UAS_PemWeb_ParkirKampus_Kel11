@@ -33,7 +33,7 @@ class JenisResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nama')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime('d M Y')->sortable(),
+                // Tables\Columns\TextColumn::make('created_at')->dateTime('d M Y')->sortable(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

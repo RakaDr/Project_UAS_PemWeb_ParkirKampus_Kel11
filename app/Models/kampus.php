@@ -17,6 +17,7 @@ class Kampus extends Model
         'alamat',
         'latitude',
         'longitude',
+        'foto', // Tambahkan kolom foto
     ];
 
     /**
