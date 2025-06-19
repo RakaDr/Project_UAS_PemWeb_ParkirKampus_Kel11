@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use Filament\Http\Middleware\Authenticate;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -21,6 +22,8 @@ use App\Filament\Widgets\DashboardStats; // Pastikan ini sesuai dengan widget ya
 use App\Filament\Widgets\BlogPostsChart; // Contoh widget lain, jika ada
 use Filament\Pages\Dashboard;
 use Illuminate\Contracts\View\View;
+
+
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -51,6 +54,7 @@ class AdminPanelProvider extends PanelProvider
                 DashboardStats::class,
                 // BlogPostsChart::class, // Contoh widget lain, jika ada
             ])
+            
             ->renderHook(
                 'panels::head.end',
                 // Cek dulu apakah view-nya ada sebelum ditampilkan
@@ -68,6 +72,10 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->plugins([
+                FilamentShieldPlugin::make()
+                
             ])
             ->authMiddleware([
                 Authenticate::class,
