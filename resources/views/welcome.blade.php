@@ -1,393 +1,211 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parkir Kampus - Sistem Manajemen Parkir Modern</title>
 
-        <title>Laravel</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600,700&display=swap" rel="stylesheet" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="antialiased font-sans bg-gray-900 text-gray-300">
+    
+    <div class="relative">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-gray-900 via-gray-900 to-black"></div>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <div class="container mx-auto px-6 md:px-12">
+            
+            <header class="py-6" data-aos="fade-down">
+                <nav class="flex justify-between items-center">
+                    <a href="/"><img src="{{ asset('images/logodark.png') }}" alt="Logo Parkir Kampus" class="h-30"></a>
+                    <div class="hidden md:flex items-center space-x-8 font-semibold">
+                        <a href="#layanan" class="hover:text-orange-500 transition-colors">Layanan</a>
+                        <a href="#keunggulan" class="hover:text-orange-500 transition-colors">Keunggulan</a>
+                        <a href="#statistik" class="hover:text-orange-500 transition-colors">Statistik</a>
+                        <a href="#tim" class="hover:text-orange-500 transition-colors">Tim</a>
+                        <a href="#faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+                    </div>
+                    <div class="hidden md:flex items-center gap-4">
+                        @auth
+                            <a href="{{ url('/admin') }}" class="px-5 py-2 text-sm font-semibold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-colors">Dashboard</a>
+                        @else
+                            <a href="{{ url('/admin/login') }}" class="px-5 py-2 text-sm font-semibold text-white hover:bg-white/10 rounded-lg transition-colors">Log In</a>
+                        @endauth
+                    </div>
+                </nav>
+            </header>
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content: ""}html,:host{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Figtree,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.-bottom-16{bottom:-4rem}.-left-16{left:-4rem}.-left-20{left:-5rem}.top-0{top:0}.z-0{z-index:0}.\!row-span-1{grid-row:span 1 / span 1!important}.-mx-3{margin-left:-.75rem;margin-right:-.75rem}.-ml-px{margin-left:-1px}.ml-3{margin-left:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.\!hidden{display:none!important}.hidden{display:none}.aspect-video{aspect-ratio:16 / 9}.size-12{width:3rem;height:3rem}.size-5{width:1.25rem;height:1.25rem}.size-6{width:1.5rem;height:1.5rem}.h-12{height:3rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-5{width:1.25rem}.w-\[calc\(100\%_\+_8rem\)\]{width:calc(100% + 8rem)}.w-auto{width:auto}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-\[877px\]{max-width:877px}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-default{cursor:default}.resize{resize:both}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.\!flex-row{flex-direction:row!important}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-items-center{justify-items:center}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.rounded-\[10px\]{border-radius:10px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-sm{border-radius:.125rem}.rounded-l-md{border-top-left-radius:.375rem;border-bottom-left-radius:.375rem}.rounded-r-md{border-top-right-radius:.375rem;border-bottom-right-radius:.375rem}.border{border-width:1px}.border-gray-300{--tw-border-opacity: 1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-\[\#FF2D20\]\/10{background-color:#ff2d201a}.bg-gray-50{--tw-bg-opacity: 1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.from-transparent{--tw-gradient-from: transparent var(--tw-gradient-from-position);--tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)}.via-white{--tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-white{--tw-gradient-to: #fff var(--tw-gradient-to-position)}.to-zinc-900{--tw-gradient-to: #18181b var(--tw-gradient-to-position)}.stroke-\[\#FF2D20\]{stroke:#ff2d20}.object-cover{-o-object-fit:cover;object-fit:cover}.object-top{-o-object-position:top;object-position:top}.p-6{padding:1.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.pt-3{padding-top:.75rem}.text-center{text-align:center}.font-sans{font-family:Figtree,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.text-sm{font-size:.875rem;line-height:1.25rem}.text-sm\/relaxed{font-size:.875rem;line-height:1.625}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-5{line-height:1.25rem}.text-black{--tw-text-opacity: 1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-black\/50{color:#00000080}.text-gray-500{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity: 1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-\[0px_14px_34px_0px_rgba\(0\,0\,0\,0\.08\)\]{--tw-shadow: 0px 14px 34px 0px rgba(0,0,0,.08);--tw-shadow-colored: 0px 14px 34px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);--tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.ring-1{--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.ring-black{--tw-ring-opacity: 1;--tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity, 1))}.ring-gray-300{--tw-ring-opacity: 1;--tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity, 1))}.ring-transparent{--tw-ring-color: transparent}.ring-white{--tw-ring-opacity: 1;--tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity, 1))}.ring-white\/\[0\.05\]{--tw-ring-color: rgb(255 255 255 / .05)}.drop-shadow-\[0px_4px_34px_rgba\(0\,0\,0\,0\.06\)\]{--tw-drop-shadow: drop-shadow(0px 4px 34px rgba(0,0,0,.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0px_4px_34px_rgba\(0\,0\,0\,0\.25\)\]{--tw-drop-shadow: drop-shadow(0px 4px 34px rgba(0,0,0,.25));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-150{transition-duration:.15s}.duration-300{transition-duration:.3s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.selection\:bg-\[\#FF2D20\] *::-moz-selection{--tw-bg-opacity: 1;background-color:rgb(255 45 32 / var(--tw-bg-opacity, 1))}.selection\:bg-\[\#FF2D20\] *::selection{--tw-bg-opacity: 1;background-color:rgb(255 45 32 / var(--tw-bg-opacity, 1))}.selection\:text-white *::-moz-selection{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-\[\#FF2D20\]::-moz-selection{--tw-bg-opacity: 1;background-color:rgb(255 45 32 / var(--tw-bg-opacity, 1))}.selection\:bg-\[\#FF2D20\]::selection{--tw-bg-opacity: 1;background-color:rgb(255 45 32 / var(--tw-bg-opacity, 1))}.selection\:text-white::-moz-selection{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity: 1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-black\/70:hover{color:#000000b3}.hover\:text-gray-400:hover{--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.hover\:text-gray-500:hover{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.hover\:ring-black\/20:hover{--tw-ring-color: rgb(0 0 0 / .2)}.focus\:z-10:focus{z-index:10}.focus\:border-blue-300:focus{--tw-border-opacity: 1;border-color:rgb(147 197 253 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring:focus{--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.focus-visible\:ring-1:focus-visible{--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.focus-visible\:ring-\[\#FF2D20\]:focus-visible{--tw-ring-opacity: 1;--tw-ring-color: rgb(255 45 32 / var(--tw-ring-opacity, 1))}.active\:bg-gray-100:active{--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.active\:text-gray-500:active{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.active\:text-gray-700:active{--tw-text-opacity: 1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:flex{display:flex}.sm\:hidden{display:none}.sm\:size-16{width:4rem;height:4rem}.sm\:size-6{width:1.5rem;height:1.5rem}.sm\:flex-1{flex:1 1 0%}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:pt-5{padding-top:1.25rem}}@media (min-width: 768px){.md\:row-span-3{grid-row:span 3 / span 3}}@media (min-width: 1024px){.lg\:col-start-2{grid-column-start:2}.lg\:h-16{height:4rem}.lg\:max-w-7xl{max-width:80rem}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:flex-col{flex-direction:column}.lg\:items-end{align-items:flex-end}.lg\:justify-center{justify-content:center}.lg\:gap-8{gap:2rem}.lg\:p-10{padding:2.5rem}.lg\:pb-10{padding-bottom:2.5rem}.lg\:pt-0{padding-top:0}.lg\:text-\[\#FF2D20\]{--tw-text-opacity: 1;color:rgb(255 45 32 / var(--tw-text-opacity, 1))}}.rtl\:flex-row-reverse:where([dir=rtl],[dir=rtl] *){flex-direction:row-reverse}@media (prefers-color-scheme: dark){.dark\:block{display:block}.dark\:hidden{display:none}.dark\:border-gray-600{--tw-border-opacity: 1;border-color:rgb(75 85 99 / var(--tw-border-opacity, 1))}.dark\:bg-black{--tw-bg-opacity: 1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.dark\:bg-gray-800{--tw-bg-opacity: 1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.dark\:bg-zinc-900{--tw-bg-opacity: 1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.dark\:via-zinc-900{--tw-gradient-to: rgb(24 24 27 / 0) var(--tw-gradient-to-position);--tw-gradient-stops: var(--tw-gradient-from), #18181b var(--tw-gradient-via-position), var(--tw-gradient-to)}.dark\:to-zinc-900{--tw-gradient-to: #18181b var(--tw-gradient-to-position)}.dark\:text-gray-300{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.dark\:text-gray-400{--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.dark\:text-gray-600{--tw-text-opacity: 1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.dark\:text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.dark\:text-white\/50{color:#ffffff80}.dark\:text-white\/70{color:#ffffffb3}.dark\:ring-zinc-800{--tw-ring-opacity: 1;--tw-ring-color: rgb(39 39 42 / var(--tw-ring-opacity, 1))}.dark\:hover\:text-gray-300:hover{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.dark\:hover\:text-white:hover{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.dark\:hover\:text-white\/70:hover{color:#ffffffb3}.dark\:hover\:text-white\/80:hover{color:#fffc}.dark\:hover\:ring-zinc-700:hover{--tw-ring-opacity: 1;--tw-ring-color: rgb(63 63 70 / var(--tw-ring-opacity, 1))}.dark\:focus\:border-blue-700:focus{--tw-border-opacity: 1;border-color:rgb(29 78 216 / var(--tw-border-opacity, 1))}.dark\:focus\:border-blue-800:focus{--tw-border-opacity: 1;border-color:rgb(30 64 175 / var(--tw-border-opacity, 1))}.dark\:focus-visible\:ring-\[\#FF2D20\]:focus-visible{--tw-ring-opacity: 1;--tw-ring-color: rgb(255 45 32 / var(--tw-ring-opacity, 1))}.dark\:focus-visible\:ring-white:focus-visible{--tw-ring-opacity: 1;--tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity, 1))}.dark\:active\:bg-gray-700:active{--tw-bg-opacity: 1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.dark\:active\:text-gray-300:active{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}}
-            </style>
-        @endif
-    </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-    <div class="relative min-h-screen items-center">
-        <div class="absolute inset-0 -z-10 w-full h-auto bg-black/98">
-            <img src="{{ asset('images/bg.jpg') }}" alt="" class="w-full h-lvh object-cover object-center opacity-40 rounded-b-4xl" />
+            <main class="flex flex-col gap-24 py-20 md:gap-32 md:py-24">
+                
+                <section id="home" class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-center lg:text-left">
+                    <div data-aos="fade-right">
+                        <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight">Sistem Parkir Generasi <span class="text-orange-500">Berikutnya</span></h1>
+                        <p class="mt-6 text-lg text-gray-400 max-w-lg mx-auto lg:mx-0">Manajemen parkir terintegrasi yang menghadirkan efisiensi, keamanan, dan kemudahan akses bagi seluruh warga kampus.</p>
+                        <div class="mt-10">
+                            <a href="{{ url('/admin/register') }}" class="inline-block bg-orange-600 text-white py-4 px-8 rounded-lg font-semibold text-lg hover:bg-orange-700 transition-transform hover:scale-105">Daftar Sekarang</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
+                        <img src="{{ asset('images/bg.jpg') }}" alt="Area Parkir Kampus" class="w-full rounded-2xl shadow-2xl border-4 border-gray-800 aspect-video object-cover">
+                    </div>
+                </section>
+
+                <section id="layanan" class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-12" data-aos="fade-up">Fitur Utama Sistem Parkir</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-xl font-semibold text-orange-500">Manajemen Terpusat</h3>
+                            <p class="mt-2 text-gray-400">Kelola beberapa area parkir di berbagai lokasi kampus dari satu dashboard yang intuitif.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="text-xl font-semibold text-orange-500">Keamanan & Pelacakan</h3>
+                            <p class="mt-2 text-gray-400">Setiap transaksi dan data kendaraan tercatat dengan aman untuk meningkatkan keamanan.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="text-xl font-semibold text-orange-500">Laporan Analitik</h3>
+                            <p class="mt-2 text-gray-400">Dapatkan wawasan berharga dari data parkir untuk membantu Anda membuat keputusan.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="keunggulan" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left" data-aos="fade-right">
+                         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Keunggulan Kompetitif</h2>
+                         <ul class="space-y-4 text-lg text-gray-300">
+                            <li class="flex items-start"><span class="text-orange-500 mr-3 mt-1">✓</span><span>Sistem berbasis web yang dapat diakses di mana saja.</span></li>
+                            <li class="flex items-start"><span class="text-orange-500 mr-3 mt-1">✓</span><span>Manajemen peran pengguna yang fleksibel (Admin, Petugas, dll).</span></li>
+                            <li class="flex items-start"><span class="text-orange-500 mr-3 mt-1">✓</span><span>Integrasi QR Code untuk proses check-in/out yang cepat.</span></li>
+                            <li class="flex items-start"><span class="text-orange-500 mr-3 mt-1">✓</span><span>Dashboard analitik untuk memantau performa parkir.</span></li>
+                         </ul>
+                    </div>
+                    <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
+                         <img src="{{ asset('images/dasadmin.png') }}" alt="Tampilan Dashboard" class="w-full max-w-md rounded-xl shadow-lg border-2 border-gray-800">
+                    </div>
+                </section>
+
+                <section id="statistik" class="w-full max-w-5xl mx-auto">
+                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-gray-800/50 py-12 px-8 rounded-2xl border border-gray-700">
+                         <div class="text-center" data-aos="zoom-in">
+                             <div class="text-5xl font-bold text-orange-500">{{ $kampusCount }}</div>
+                             <p class="mt-2 text-lg text-white/70">Kampus Terhubung</p>
+                         </div>
+                         <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                             <div class="text-5xl font-bold text-orange-500">{{ $areaParkirCount }}</div>
+                             <p class="mt-2 text-lg text-white/70">Total Area Parkir</p>
+                         </div>
+                         <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                             <div class="text-5xl font-bold text-orange-500">{{ number_format($transaksiCount, 0, ',', '.') }}</div>
+                             <p class="mt-2 text-lg text-white/70">Transaksi Tercatat</p>
+                         </div>
+                     </div>
+                </section>
+                
+                <section id="testimoni" class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-12" data-aos="fade-up">Apa Kata Mereka</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <blockquote class="bg-gray-800/50 p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                            <p class="text-lg">"Sistem ini mengubah total cara kami mengelola parkiran. Semuanya otomatis dan sangat efisien."</p>
+                            <footer class="mt-4 text-sm text-gray-400 font-semibold">– Budi Santoso, Manajer Fasilitas</footer>
+                        </blockquote>
+                        <blockquote class="bg-gray-800/50 p-8 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                            <p class="text-lg">"Pekerjaan saya jadi jauh lebih cepat. Tidak perlu lagi tiket manual, semua tercatat di sistem. Sangat membantu di jam sibuk."</p>
+                            <footer class="mt-4 text-sm text-gray-400 font-semibold">– Siti Aminah, Petugas Parkir</footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                
+                <section id="faq" class="w-full max-w-4xl mx-auto py-16 md:py-24">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white">
+                            Pertanyaan yang Sering <span class="text-[#F65500]">Diajukan</span>
+                        </h2>
+                        <p class="mt-4 max-w-2xl mx-auto text-gray-300 dark:text-gray-400 text-lg">
+                            Tidak menemukan jawaban Anda? Hubungi kami untuk informasi lebih lanjut.
+                        </p>
+                    </div>
+                
+                    <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+                        <div x-data="{ open: false }" class="bg-gray-800/50 p-8 rounded-xl border border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left text-xl font-semibold focus:outline-none hover:bg-black/5 dark:hover:bg-white/5">
+                                <span class=" dark:text-white">Apakah sistem ini aman?</span>
+                                <svg class="w-6 h-6 text-orange-500 shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div x-show="open" x-collapse class="px-6 pb-6 text-gray-300 dark:text-gray-400">
+                                <p>Tentu saja. Semua data transaksi dan kendaraan dienkripsi dan disimpan di server yang aman. Sistem kami juga mencatat setiap aktivitas untuk keperluan audit, memastikan tidak ada penyalahgunaan data.</p>
+                            </div>
+                        </div>
+                
+                        <div x-data="{ open: false }" class="bg-gray-800/50 p-8 rounded-xl border border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left text-xl font-semibold focus:outline-none hover:bg-black/5 dark:hover:bg-white/5">
+                                <span class=" dark:text-white">Bagaimana proses implementasinya di kampus kami?</span>
+                                <svg class="w-6 h-6 text-orange-500 shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div x-show="open" x-collapse class="px-6 pb-6 text-gray-300 dark:text-gray-400">
+                                <p>Tim kami akan bekerja sama dengan Anda. Prosesnya meliputi survei area, setup hardware (jika diperlukan), instalasi software, hingga pelatihan untuk admin dan petugas parkir Anda. Kami akan mendampingi Anda dari awal hingga sistem berjalan lancar.</p>
+                            </div>
+                        </div>
+                
+                        <div x-data="{ open: false }" class="bg-gray-800/50 p-8 rounded-xl border border-gray-700 shadow-sm overflow-hidden transition-all duration-300">
+                            <button @click="open = !open" class="w-full flex justify-between items-center p-6 text-left text-xl font-semibold focus:outline-none hover:bg-black/5 dark:hover:bg-white/5">
+                                <span class=" dark:text-white">Apakah bisa diintegrasikan dengan sistem kampus yang sudah ada?</span>
+                                <svg class="w-6 h-6 text-orange-500 shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div x-show="open" x-collapse class="px-6 pb-6 text-gray-300 dark:text-gray-400">
+                                <p>Sangat bisa. Sistem kami dibangun dengan API yang fleksibel yang memungkinkan integrasi dengan sistem informasi akademik (SIAKAD) atau sistem gerbang otomatis yang mungkin sudah dimiliki oleh kampus Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="tim" class="py-16 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-12" data-aos="fade-up">Tim <span class="text-[#F65500]">Pengembang</span></h2>
+                    <div class="flex flex-wrap justify-center gap-x-8 gap-y-12">
+                        @php
+                            $team = [
+                                ['name' => 'Raka Dwi Randika', 'nim' => '0110224109', 'photo' => 'rakawi.png'],
+                                ['name' => 'Rois Azzam Shiddiq', 'nim' => '0110224156', 'photo' => 'rois.jpg'],
+                                ['name' => 'Anwar Maulana', 'nim' => '0110224020', 'photo' => 'anwar.jpg'],
+                                ['name' => 'Rama Aditia', 'nim' => '0110224160', 'photo' => 'rama.jpg'],
+                                ['name' => 'M. Rizqi Nurrohmat', 'nim' => '0110224001', 'photo' => 'rohmat.jpg'],
+                            ];
+                        @endphp
+                        @foreach ($team as $index => $member)
+                        <div class="text-center w-40" data-aos="zoom-in-up" data-aos-delay="{{ $index * 100 }}">
+                            <img src="{{ asset('images/' . $member['photo']) }}" alt="Foto {{ $member['name'] }}" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-gray-700">
+                            <h3 class="font-semibold text-white">{{ $member['name'] }}</h3>
+                            <p class="text-sm text-gray-500">{{ $member['nim'] }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+               </section>
+                
+                
+            </main>
         </div>
-        <header>
-            <nav class="fixed top-4 left-4 right-4 z-50">
-            <!-- Sticky Navbar: tetap di atas saat di-scroll -->
-            <div class="navbar shadow-sm bg-black/80 rounded-xl text-white backdrop-blur-sm px-5 py-3">
-                <!-- Navbar Start (Mobile Dropdown) -->
-                <div class="navbar-start">
-                <div class="dropdown">
-                    <button tabindex="0" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h8m-8 6h16" />
-                    </svg>
-                    </button>
-                    <ul tabindex="0"
-                        class="menu menu-sm dropdown-content absolute mt-3 z-10 w-52 rounded-box bg-base-100 p-2 shadow">
-                    <li><a href="/" class="text-black hover:text-[#F65500] font-bold active:text-[#F65500]">Home</a></li>
-                    <li><a href="#layanan" class="text-black hover:text-[#F65500] font-bold active:text-[#F65500]">Layanan</a></li>
-                    <li><a href="#statistik" class="text-black hover:text-[#F65500] font-bold active:text-[#F65500]">Statistik</a></li>
-                    <li><a href="#team" class="text-black hover:text-[#F65500] font-bold active:text-[#F65500]">Team</a></li>
-                    </ul>
-                </div>
-                <a class="w-40 h-auto" href="/"><img src="{{ asset('images/logo.png') }}" alt=""></a>
-                </div>
 
-                <!-- Navbar Center (Desktop Menu) -->
-                <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a href="/" class="hover:text-[#F65500] font-bold mx-2 active:text-[#F65500]">Home</a></li>
-                    <li><a href="#layanan" class="hover:text-[#F65500] font-bold mx-2 active:text-[#F65500]">Layanan</a></li>
-                    <li><a href="#statistik" class="hover:text-[#F65500] font-bold mx-2 active:text-[#F65500]">Statistik</a></li>
-                    <li><a href="#team" class="hover:text-[#F65500] font-bold mx-2 active:text-[#F65500]">Team</a></li>
-                </ul>
-                </div>
-
-                <!-- Navbar End -->
-                <div class="navbar-end">
-                    @auth
-                        <a href="{{ url('/admin') }}" class="btn btn-outline-dark me-2">
-                            Dashboard
-                        </a>
-                    @else
-                        <a href="{{ url('/admin/login') }}" class="btn hover:bg-[#F65500] hover:text-white">
-                            Log in
-                        </a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ url('/admin/register') }}" class="btn btn-outline-secondary">
-                            Register
-                        </a>
-                    @endif
-                    @endauth
-                </div>
-            </div>
-            </nav>
-        </header>
-
-        <main class="flex flex-col items-center justify-center text-center px-6 py-20 space-y-32 pt-60 md:pt-72">
-
-            <!-- Hero Section -->
-            <section class="max-w-7xl h-100">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="text-left">
-                        <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight">
-                            Parkir <span class="text-[#F65500]">Kampus</span>
-                        </h1>
-                        <h2 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
-                            Masa Depan
-                        </h2>
-                        <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
-                            Sistem parkir cerdas dengan teknologi terdepan untuk kemudahan dan keamanan mahasiswa dan staff kampus.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                            <a
-                                class="btn bg-[#F65500] hover:bg-[#F65500]/90 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105"
-                            >
-                                Mulai Parkir
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="" alt="">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Fitur Section -->
-            <section id="layanan" class="h-96 w-full max-w-6xl md:pt-40">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Layanan <span class="text-[#F65500]">Terdepan</span>
-                    </h2>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Nikmati berbagai layanan modern yang dirancang khusus untuk memenuhi kebutuhan parkir kampus yang efisien dan aman
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <h3 class="text-xl text-white font-semibold mb-3">Scan QR Masuk-Keluar</h3>
-                        <p class="text-white/60">Gunakan QR Code dari aplikasi untuk keluar-masuk parkiran tanpa antri.</p>
-                    </div>
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <h3 class="text-xl text-white font-semibold mb-3">Pantau Slot Parkir</h3>
-                        <p class="text-white/60">Lihat ketersediaan lahan parkir secara langsung dari dashboard atau aplikasi.</p>
-                    </div>
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <h3 class="text-xl text-white font-semibold mb-3">Laporan & Riwayat</h3>
-                        <p class="text-white/60">Data kendaraan dan riwayat parkir tersimpan aman dan bisa diakses kapan saja.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="statistik" class="h-fit md:pt-40">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-                    <!-- Bagian teks, atur order agar di atas saat mobile -->
-                    <div class="order-1 md:order-2 md:mt-28 text-center md:text-left md:pr-20">
-                        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
-                            Statistik <span class="text-[#F65500]">Mengagumkan</span>
-                        </h2>
-                        <p class="text-xl text-gray-300 max-w-3xl mx-auto md:mx-0">
-                            Angka-angka yang membuktikan kepercayaan dan kepuasan pengguna terhadap sistem parkir kampus kami
-                        </p>
-                    </div>
-
-                    <!-- Bagian card -->
-                    <div class="order-2 md:order-1 grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
-                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
-                                        <a href="" class="text-2xl hover:text-3xl"><i class="fa-regular fa-thumbs-up"></i></a>
-                                    </div>
-                                </div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300 mt-2">
-                                    85%
-                                </h3>
-                                <p class="text-gray-300 leading-relaxed">
-                                    Approve
-                                </p>
-                            </div>
-                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition mt-4">
-                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
-                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
-                                        <a href="" class="text-2xl hover:text-3xl"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-                                </div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300 mt-2">
-                                    90%
-                                </h3>
-                                <p class="text-gray-300 leading-relaxed">
-                                    Like
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
-                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
-                                        <a href="" class="text-2xl hover:text-3xl"><i class="fa-regular fa-comment"></i></a>
-                                    </div>
-                                </div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300 mt-2">
-                                    55%
-                                </h3>
-                                <p class="text-gray-300 leading-relaxed">
-                                    Comment
-                                </p>
-                            </div>
-                            <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition mt-4">
-                                <div class="bg-[#F65500]/10 p-4 mx-28 rounded-xl group-hover:bg-[#F65500]/20 transition-colors duration-300">
-                                    <div class="text-[#F65500] group-hover:scale-110 transition-transform duration-300">
-                                        <a href="" class="text-2xl hover:text-3xl"><i class="fa-regular fa-handshake"></i></a>
-                                    </div>
-                                </div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-[#F65500] transition-colors duration-300 mt-2">
-                                    90%
-                                </h3>
-                                <p class="text-gray-300 leading-relaxed">
-                                    Cooperation
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section id="team" class="w-full max-w-6xl md:pt-40">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Our <span class="text-[#F65500]">Team</span>
-                    </h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <img src="{{ asset('images/raka.jpg') }}" alt="" class="rounded-2xl w-32 h-32 mx-auto mb-4 ">
-                        <h3 class="text-xl text-white font-semibold mb-3">Raka Dwi Randika</h3>
-                        <p class="text-white/60">0110224109</p>
-                    </div>
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <img src="{{ asset('images/rois.jpg') }}" alt="" class="rounded-2xl w-32 h-32 mx-auto mb-4 ">
-                        <h3 class="text-xl text-white font-semibold mb-3">Rois Azzam Shiddiq</h3>
-                        <p class="text-white/60">0110224156</p>
-                    </div>
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <img src="{{ asset('images/anwar.jpg') }}" alt="" class="rounded-2xl w-32 h-32 mx-auto mb-4 ">
-                        <h3 class="text-xl text-white font-semibold mb-3">Anwar Maulana</h3>
-                        <p class="text-white/60">0110224020</p>
-                    </div>
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <img src="{{ asset('images/') }}" alt="" class="rounded-2xl w-32 h-32 mx-auto mb-4 ">
-                        <h3 class="text-xl text-white font-semibold mb-3">Rama Aditia</h3>
-                        <p class="text-white/60">0110224160</p>
-                    </div>
-                    <div class="bg-[#F65500]/20 border-[#F65500]/50 hover:border-[#F65500] p-6 rounded-xl border hover:scale-105 transition">
-                        <img src="{{ asset('images/rohmat.jpg') }}" alt="" class="rounded-2xl w-32 h-32 mx-auto mb-4 ">
-                        <h3 class="text-xl text-white font-semibold mb-3">Muhammad Rizqi Nurrohmat</h3>
-                        <p class="text-white/60">0110224001</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Call To Action -->
-            <section class="bg-white/60 w-full py-20 px-8 rounded-3xl shadow-lg text-black text-center">
-                <h2 class="text-3xl font-bold mb-4">Ingin Terapkan di Kampusmu?</h2>
-                <p class="text-lg mb-6">Daftar sekarang untuk menggunakan sistem parkir kampus modern kami.</p>
-                <a href="{{ url('/admin/register') }}" class="bg-[#F65500] text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Daftar Sekarang</a>
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-[#F65500]/40 dark:bg-gray-900 rounded-t-3xl shadow-lg mt-20">
-            <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-                <div class="lg:flex lg:items-start lg:gap-8">
-
-                <div class="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
-                    <div class="col-span-2">
-                    <div>
-                        <a class=" h-auto" href="/"><img src="{{ asset('images/logo.png') }}" alt="" class="w-44"></a>
-                        <p class="mt-4 text-white dark:text-white/70">
-                        Sistem parkir cerdas dengan teknologi terdepan untuk kemudahan dan keamanan mahasiswa dan staff kampus.
-                        </p>
-                    </div>
-                    </div>
-
-                    <div class="col-span-2 sm:col-span-1">
-                    <p class="font-medium text-white dark:text-white">Services</p>
-
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            1on1 Coaching
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            Company Review
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            Accounts Review
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            HR Consulting
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            SEO Optimisation
-                        </a>
-                        </li>
-                    </ul>
-                    </div>
-
-                    <div class="col-span-2 sm:col-span-1">
-                    <p class="font-medium text-white dark:text-white">Company</p>
-
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            About
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            Meet the Team
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            Accounts Review
-                        </a>
-                        </li>
-                    </ul>
-                    </div>
-
-                    <div class="col-span-2 sm:col-span-1">
-                    <p class="font-medium text-white dark:text-white">Helpful Links</p>
-
-                    <ul class="mt-6 space-y-4 text-sm">
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            Contact
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            FAQs
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-200">
-                            Live Chat
-                        </a>
-                        </li>
-                    </ul>
-                    </div>
-
-                </div>
-                </div>
-
-                <div class="mt-8 border-t border-gray-100 pt-8 dark:border-gray-800">
-                <div class="sm:flex sm:justify-between">
-
-                    <ul class="mt-8 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
-                    <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-400">
-                        Terms & Conditions
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-400">
-                        Privacy Policy
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="text-white transition hover:opacity-75 dark:text-gray-400">
-                        Cookies
-                        </a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </footer>
-
-
-
+        <footer class="w-full border-t border-gray-800 mt-16"><div class="container mx-auto text-center py-6"><p class="text-sm text-gray-500">&copy; {{ date('Y') }} Parkir Kampus. Dibuat oleh Kelompok 3.</p></div></footer>
     </div>
 
-    <script src="https://kit.fontawesome.com/4317466991.js" crossorigin="anonymous"></script>
-    </body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+                <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        // 3. Inisialisasi AOS
+        AOS.init({
+            duration: 800, // Durasi animasi dalam milidetik
+            once: true,    // Animasi hanya berjalan sekali saat scroll
+            offset: 100,   // Memicu animasi 100px sebelum elemen terlihat
+        });
+    </script>
+</body>
 </html>

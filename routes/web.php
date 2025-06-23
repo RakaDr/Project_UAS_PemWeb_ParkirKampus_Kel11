@@ -1,34 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Kampus; // Import modelnya
-use App\Models\Kendaraan; // Import modelnya
+use App\Models\Kampus;
+use App\Models\AreaParkir;
+use App\Models\Transaksi;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $realKampusCount = Kampus::count();
+    $realAreaParkirCount = AreaParkir::count();
+    $realTransaksiCount = Transaksi::count();
 
-Route::get('/landing', function () {
-    return view('landing');
-});
+    $kampusCount = $realKampusCount > 0 ? $realKampusCount : 7;
+    $areaParkirCount = $realAreaParkirCount > 0 ? $realAreaParkirCount : 23;
+    $transaksiCount = $realTransaksiCount > 0 ? $realTransaksiCount : 1572;
 
-// Route::get('/admin', function () {
-//     return view('admin');
-// });
-
-Route::get('/tes-relasi', function() {
-    // Ambil Kampus dengan ID 1, dan sertakan data relasi 'areaParkirs'-nya
-    $kampus = Kampus::with('areaParkirs')->find(1);
-
-    // Sekarang Anda bisa mengakses data area parkir seperti ini:
-    foreach ($kampus->areaParkirs as $parkiran) {
-        echo 'Area Parkir: ' . $parkiran->nama . '<br>';
-    }
-
-    echo "<hr>";
-
-    // Contoh sebaliknya: ambil data kendaraan dan tampilkan jenisnya
-    $kendaraan = Kendaraan::with('jenis')->find(4); // Ambil Yamaha NMAX
-    echo "Kendaraan: " . $kendaraan->merk . "<br>";
-    echo "Jenisnya: " . $kendaraan->jenis->nama; // Mengakses relasi 'jenis'
+    return view('welcome', [
+        'kampusCount' => $kampusCount,
+        'areaParkirCount' => $areaParkirCount,
+        'transaksiCount' => $transaksiCount,
+    ]);
 });
