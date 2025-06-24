@@ -1,4 +1,4 @@
-<section id="home" class="py-16 md:py-24" data-aos="zoom-in-up">
+<section id="home" class="py-16 md:py-0" data-aos="zoom-in-up">
 
     <div
         class="group relative bg-white/60 dark:bg-black/20 backdrop-blur-2xl p-8 sm:p-12 md:p-16 rounded-3xl border border-gray-300 dark:border-white/10 shadow-xl
@@ -19,7 +19,7 @@
                     seluruh warga kampus.
                 </p>
                 <div class="mt-10">
-                    <a href="{{ url('/admin/register') }}" class="inline-flex items-center justify-center gap-3 bg-orange-500 text-white py-4 px-8 rounded-full font-semibold text-lg 
+                    <a href="{{ url('/admin/register') }}" class="inline-flex items-center justify-center gap-3 bg-orange-500 text-white py-4 px-8 rounded-full font-semibold text-lg
           hover:bg-orange-600 transition-transform hover:scale-105 shadow-lg hover:shadow-orange-500/40">
                         <span>Daftar Sekarang</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"

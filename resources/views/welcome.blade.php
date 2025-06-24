@@ -21,7 +21,7 @@
     </script>
 </head>
 
-<body class="antialiased font-sans text-slate-800 dark:text-gray-300"
+<body class="w-full antialiased font-sans text-slate-800 dark:text-gray-300"
     x-data="{ openModal: false, selectedMember: null }">
 
     <!-- Mobile Menu -->
@@ -105,7 +105,7 @@
                     </svg>
                 </button> --}}
 
-                <div class="hidden sm:flex items-center gap-2">
+                <div class="hidden sm:flex items-center gap-2 mr-3">
                     @auth
                         <a href="{{ url('/admin') }}"
                             class="px-5 py-2 text-sm font-semibold rounded-lg bg-gray-200 text-slate-900 hover:bg-gray-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 transition-colors">Dashboard</a>
