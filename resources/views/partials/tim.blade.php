@@ -15,7 +15,7 @@
                 [
                     'name' => 'Raka Dwi Randika',
                     'nim' => '0110224109',
-                    'photo' => 'rakawi.png',
+                    'photo' => 'rakawi.jpg',
                     'role' => 'Project Manager & Backend Developer',
                     'quote' => 'Membangun fondasi yang kuat untuk sistem yang andal.',
                     'linkedin' => 'https://www.linkedin.com/in/raka-dwi-randika-a856b433a/',
