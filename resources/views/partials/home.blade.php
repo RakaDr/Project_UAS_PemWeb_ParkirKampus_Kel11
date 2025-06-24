@@ -1,4 +1,4 @@
-<section id="home" class="py-16 md:py-0" data-aos="zoom-in-up">
+<section id="home" data-aos="zoom-in-up">
 
     <div
         class="group relative bg-white/60 dark:bg-black/20 backdrop-blur-2xl p-8 sm:p-12 md:p-16 rounded-3xl border border-gray-300 dark:border-white/10 shadow-xl
