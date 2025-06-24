@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             AreaParkirSeeder::class,
             KendaraanSeeder::class,
             TransaksiSeeder::class,
+            RolePermissionSeeder::class,
+            SuperAdminSeeder::class,
         ]);
     }
 }
