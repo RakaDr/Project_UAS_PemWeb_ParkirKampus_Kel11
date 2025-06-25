@@ -2,28 +2,22 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Http\Middleware\Authenticate;
+// PENTING: Import Dashboard dari folder App, bukan dari Filament
+use App\Filament\Pages\Dashboard;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
-use Filament\Http\Middleware\AuthenticateSession;
+use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
-use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use App\Filament\Widgets\DashboardStats; // Pastikan ini sesuai dengan widget yang Anda buat
-use App\Filament\Widgets\BlogPostsChart; // Contoh widget lain, jika ada
-use Filament\Pages\Dashboard;
-use Illuminate\Contracts\View\View;
-
-
+use Illuminate\View\View;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -31,36 +25,41 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->brandLogo(asset('images/logolight.png'))
-            ->darkModeBrandLogo(asset('images/logodark.png'))
-            ->brandLogoHeight('70px') // Atur tinggi logo menjadi 40 pixel // Ganti dengan logo yang sesuai
             ->id('admin')
             ->path('admin')
             ->login()
             ->registration()
+            ->brandLogo(asset('images/logolight.png'))
+            ->darkModeBrandLogo(asset('images/logodark.png'))
+            ->brandLogoHeight('70px')
             ->colors([
-                'primary' => '#FF6500', // Oranye sebagai warna utama
-                'gray' => '#0B192C',   // Biru sangat gelap sebagai pengganti warna abu-abu
+                'primary' => '#FF6500',
+                'gray' => '#0B192C',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages([
-                Pages\Dashboard::class,
-            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            
+            // --- PERBAIKAN 1: Mendaftarkan halaman Dashboard kustom kita ---
+            ->pages([
+                Dashboard::class, // Ini sekarang menunjuk ke App\Filament\Pages\Dashboard
+            ])
+
+            // --- PERBAIKAN 2: Mengosongkan widget global ---
             ->widgets([
-                // Widgets\AccountWidget::class,
-                // Widgets\FilamentInfoWidget::class,
-                DashboardStats::class,
-                // BlogPostsChart::class, // Contoh widget lain, jika ada
+                // DIBIARKAN KOSONG agar semua diatur oleh Dashboard.php
             ])
             
+            ->plugins([
+                FilamentShieldPlugin::make()
+            ])
             ->renderHook(
-                'panels::head.end',
-                // Cek dulu apakah view-nya ada sebelum ditampilkan
-                fn (): ?View => view()->exists('filament.custom-styles') 
-                                    ? view('filament.custom-styles') 
-                                    : null
+                'panels::auth.login.form.after',
+                fn (): View => view('filament.custom.back-home-btn')
+            )
+            ->renderHook(
+                'panels::auth.register.form.after',
+                fn (): View => view('filament.custom.back-home-btn')
             )
             ->middleware([
                 EncryptCookies::class,
@@ -72,10 +71,6 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-            ])
-            ->plugins([
-                FilamentShieldPlugin::make()
-                
             ])
             ->authMiddleware([
                 Authenticate::class,
