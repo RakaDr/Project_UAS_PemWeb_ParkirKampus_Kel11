@@ -286,77 +286,109 @@
         });
     </script>
     <script>
-                                                                  document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
 
-            // --- LOGIKA DARK MODE YANG DIPERBAIKI ---
-            const themeToggleButton = document.getElementById('theme-toggle-button'); // <-- ID yang benar
-                                                                  const sunIcon = document.getElementById('theme-toggle-sun');
-                                                                  const moonIcon = document.getElementById('theme-toggle-moon');
+            // --- LOGIKA DARK MODE ---
+            const themeToggleButton = document.getElementById('theme-toggle-button');
+            const sunIcon = document.getElementById('theme-toggle-sun');
+            const moonIcon = document.getElementById('theme-toggle-moon');
+
+            // Menggunakan document.documentElement (tag <html>) sebagai target untuk kelas 'dark'
+            const targetElement = document.documentElement;
 
             const updateIcons = (isDark) => {
                 if (sunIcon && moonIcon) {
-                                                                      sunIcon.style.display = isDark ? 'none' : 'block';
-                                                                  moonIcon.style.display = isDark ? 'block' : 'none';
+                    // Mengatur display CSS langsung pada ikon
+                    sunIcon.style.display = isDark ? 'none' : 'block';
+                    moonIcon.style.display = isDark ? 'block' : 'none';
                 }
             };
 
-            // Panggil saat load untuk sinkronisasi ikon dengan tema awal dari <head>
-                                                                      updateIcons(document.documentElement.classList.contains('dark'));
+            const applyTheme = (isDark) => {
+                if (isDark) {
+                    targetElement.classList.add('dark'); // Tambahkan kelas 'dark' ke <html>
+                } else {
+                    targetElement.classList.remove('dark'); // Hapus kelas 'dark' dari <html>
+                }
+                updateIcons(isDark); // Perbarui ikon sesuai tema
+            };
 
-                                                                      // Tambahkan fungsi klik pada tombol
-                                                                      if (themeToggleButton) {
-                                                                          themeToggleButton.addEventListener('click', () => {
-                                                                              const isDark = document.documentElement.classList.toggle('dark');
-                                                                              localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                                                                              updateIcons(isDark);
-                                                                          });
+            // Fungsi untuk memuat tema saat halaman dimuat
+            const loadTheme = () => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    applyTheme(true); // Terapkan tema gelap jika tersimpan
+                } else if (savedTheme === 'light') {
+                    applyTheme(false); // Terapkan tema terang jika tersimpan
+                } else {
+                    // Jika tidak ada tema tersimpan, deteksi preferensi sistem
+                    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    applyTheme(prefersDark);
+                }
+            };
+
+            // Panggil loadTheme segera setelah DOM siap untuk mengatur tema awal
+            loadTheme();
+
+            // Tambahkan event listener untuk tombol toggle
+            if (themeToggleButton) {
+                themeToggleButton.addEventListener('click', () => {
+                    // Periksa apakah tema saat ini gelap (berdasarkan kelas di <html>)
+                    const isCurrentlyDark = targetElement.classList.contains('dark');
+                    const newThemeIsDark = !isCurrentlyDark; // Alihkan tema
+
+                    applyTheme(newThemeIsDark); // Terapkan tema baru
+                    // Simpan preferensi pengguna ke localStorage
+                    localStorage.setItem('theme', newThemeIsDark ? 'dark' : 'light');
+                });
             }
-                                                                      // --- AKHIR LOGIKA DARK MODE ---
+            // --- AKHIR LOGIKA DARK MODE ---
 
 
-                                                                      // --- LOGIKA LAINNYA (TIDAK BERUBAH) ---
+            // --- LOGIKA LAINNYA (TIDAK BERUBAH) ---
 
-                                                                      // Inisialisasi AOS (Animasi on Scroll)
-                                                                      AOS.init({
-                                                                          duration: 800,
-                                                                      once: true,
-                                                                      offset: 50,
+            // Inisialisasi AOS (Animasi on Scroll)
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
             });
 
-                                                                      // Toggle Menu Mobile
-                                                                      const mobileMenuButton = document.getElementById('mobile-menu-button');
-                                                                      const mobileMenu = document.getElementById('mobile-menu');
-                                                                      if (mobileMenuButton && mobileMenu) {
-                                                                          mobileMenuButton.addEventListener('click', () => {
-                                                                              mobileMenu.classList.toggle('hidden');
-                                                                          });
+            // Toggle Menu Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
             }
 
-                                                                      // Animasi Angka Statistik
-                                                                      const counters = document.querySelectorAll('.counter');
+            // Animasi Angka Statistik
+            const counters = document.querySelectorAll('.counter');
             const observer = new IntersectionObserver((entries, observer) => {
-                                                                          entries.forEach(entry => {
-                                                                              if (entry.isIntersecting) {
-                                                                                  const el = entry.target;
-                                                                                  const target = el.getAttribute('data-target').replace(/\./g, '');
-                                                                                  const countUp = new CountUp(el, target, {
-                                                                                      duration: 2.5,
-                                                                                      separator: '.',
-                                                                                  });
-                                                                                  if (!countUp.error) {
-                                                                                      countUp.start();
-                                                                                  } else {
-                                                                                      console.error(countUp.error);
-                                                                                      el.textContent = el.getAttribute('data-target');
-                                                                                  }
-                                                                                  observer.unobserve(el);
-                                                                              }
-                                                                          });
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = el.getAttribute('data-target').replace(/\./g, '');
+                        const countUp = new CountUp(el, target, {
+                            duration: 2.5,
+                            separator: '.',
+                        });
+                        if (!countUp.error) {
+                            countUp.start();
+                        } else {
+                            console.error(countUp.error);
+                            el.textContent = el.getAttribute('data-target');
+                        }
+                        observer.unobserve(el);
+                    }
+                });
             }, {
-                                                                          threshold: 0.1
+                threshold: 0.1
             });
+
             counters.forEach(counter => {
-                                                                          observer.observe(counter);
+                observer.observe(counter);
             });
         });
     </script>

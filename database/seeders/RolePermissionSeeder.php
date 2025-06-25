@@ -37,9 +37,9 @@ class RolePermissionSeeder extends Seeder
                 $role->syncPermissions(Permission::all());
             } elseif ($roleName === 'admin') {
                 $role->syncPermissions(['view posts', 'edit posts', 'create posts']);
-            } elseif ($roleName === 'editor') {
+            } elseif ($roleName === 'Petugas_parkir') {
                 $role->syncPermissions(['view posts', 'edit posts']);
-            } elseif ($roleName === 'viewer') {
+            } elseif ($roleName === 'user') {
                 $role->syncPermissions(['view posts']);
             }
         }

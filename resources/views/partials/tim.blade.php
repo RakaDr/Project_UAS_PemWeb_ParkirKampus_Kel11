@@ -27,7 +27,9 @@
                     'nim' => '0110224156',
                     'photo' => 'rois.jpg',
                     'role' => 'Frontend Developer & UI/UX Designer',
-                    'quote' => 'Fokus pada detail kecil yang menciptakan pengalaman pengguna luar biasa.'
+                    'quote' => 'Fokus pada detail kecil yang menciptakan pengalaman pengguna luar biasa.',
+                    'linkedin' => 'https://www.linkedin.com/in/rois-azzam-shiddiq-73a81735a/',
+                    'github' => 'https://github.com/Roisazzshid'
                 ],
                 [
                     'name' => 'Anwar Maulana',
@@ -57,9 +59,9 @@
         @foreach ($team as $index => $member)
             <button @click="selectedMember = {{ json_encode($member) }}; openModal = true" data-aos="zoom-in-up"
                 data-aos-delay="{{ $index * 100 }}" class="tilt-card group relative aspect-[2/3] w-full rounded-3xl overflow-hidden text-left
-                   border border-gray-300 dark:border-white/10 
-                   shadow-xl shadow-black/10 dark:shadow-black/50      
-                   hover:shadow-2xl hover:shadow-orange-500/30  
+                   border border-gray-300 dark:border-white/10
+                   shadow-xl shadow-black/10 dark:shadow-black/50
+                   hover:shadow-2xl hover:shadow-orange-500/30
                    transition-all duration-500 ease-in-out" style="transform-style: preserve-3d;">
 
                 <img src="{{ asset('images/' . $member['photo']) }}" alt="Foto {{ $member['name'] }}"
